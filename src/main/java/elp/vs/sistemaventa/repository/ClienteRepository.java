@@ -1,9 +1,8 @@
 package elp.vs.sistemaventa.repository;
 
+import elp.vs.sistemaventa.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import elp.vs.sistemaventa.model.ClienteEntity;
-
-public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 }
