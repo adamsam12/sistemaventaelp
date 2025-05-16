@@ -29,4 +29,13 @@ public class ClienteController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));*/
     }
 
+    @GetMapping("/cliente/{id}")
+    public ResponseEntity<ClienteResponse> getClientesById(@PathVariable Long id){
+
+        return  ResponseEntity.ok(clienteService.findByIdCliente(id));
+
+/*        return  lienteService.findByIdCliente(id).filter(List::isEmpty).map(client -> new ResponseEntity<>(client, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));*/
+    }
+
 }
