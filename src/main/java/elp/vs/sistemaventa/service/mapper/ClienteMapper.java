@@ -16,6 +16,7 @@ public class ClienteMapper {
         if(listCliente != null && !listCliente.isEmpty()) {
             for (Cliente cliente : listCliente) {
                 ClienteResponse clienteResponse = new ClienteResponse();
+                clienteResponse.setIdentificador(cliente.getId());
                 clienteResponse.setNombre(cliente.getNombre());
                 clienteResponse.setApellidos(cliente.getApellidos());
                 clienteResponse.setCelular(cliente.getCelular());
