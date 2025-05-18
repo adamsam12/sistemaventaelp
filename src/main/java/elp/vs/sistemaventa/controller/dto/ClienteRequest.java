@@ -1,15 +1,16 @@
 package elp.vs.sistemaventa.controller.dto;
 
-import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
-import jakarta.persistence.Column;
-
+@Getter
+@Setter
 public class ClienteRequest {
-	
+
 	private String nombre;
-	private String email;
-	private String telefono; 
+	private String apellidos;
+	private Long celular;
 	private String direccion;
-	private LocalDateTime fechaRegistro;
+	private String correoElectronico;
 
 }

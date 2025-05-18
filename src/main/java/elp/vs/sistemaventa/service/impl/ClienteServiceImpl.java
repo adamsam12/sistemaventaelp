@@ -39,9 +39,11 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteMapper.toClienteToClienteResponse(cliente);
     }
 
+    //Crear Cliente
     @Override
     public void saveCliente(ClienteRequest request) {
-
+        Cliente clienteNew =new  Cliente();
+        clienteRepository.save(clienteNew);
     }
 
     @Override
