@@ -9,6 +9,7 @@ import elp.vs.sistemaventa.service.mapper.ClienteMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
@@ -43,16 +44,35 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public void saveCliente(ClienteRequest request) {
         Cliente clienteNew =new  Cliente();
+        System.out.println("que llega" + clienteNew);
+        clienteNew.setNombre(request.getNombre());
+        clienteNew.setApellidos(request.getApellidos());
+        clienteNew.setCelular(request.getCelular());
+        clienteNew.setCorreoElectronico(request.getCorreoElectronico());
+        clienteNew.setDireccion(request.getDireccion());
+        clienteNew.setCompras(new ArrayList<>());
         clienteRepository.save(clienteNew);
     }
 
     @Override
-    public void updateCliente(ClienteRequest request) {
-
+    public void updateCliente(Long id, ClienteRequest request) {
+        Cliente cliente = clienteRepository.findById(id).orElse(null);
+        if (cliente != null) {
+            cliente.setNombre(request.getNombre());
+            cliente.setApellidos(request.getApellidos());
+            cliente.setCelular(request.getCelular());
+            cliente.setCorreoElectronico(request.getCorreoElectronico());
+            cliente.setDireccion(request.getDireccion());
+            cliente.setCompras(new ArrayList<>());
+            clienteRepository.save(cliente);
+        }
     }
 
     @Override
     public void deleteCliente(Long idCliente) {
-
+        Cliente cliente = clienteRepository.findById(idCliente).orElse(null);
+        if (cliente != null) {
+            clienteRepository.delete(cliente);
+        }
     }
 }

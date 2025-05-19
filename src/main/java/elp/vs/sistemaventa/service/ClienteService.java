@@ -15,7 +15,7 @@ public interface ClienteService {
 	//Para crear cliente
 	void saveCliente (ClienteRequest request);
 	//Para Actualizar cliente
-	void updateCliente(ClienteRequest request);
+	void updateCliente(Long id, ClienteRequest request);
 	
 	void deleteCliente (Long idCliente);
 
